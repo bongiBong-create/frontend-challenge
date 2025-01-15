@@ -14,7 +14,7 @@ export const useObserver = ({ ref, canload, isLoading, callback }: Observer) => 
     if (isLoading) return;
     if (observer.current) observer.current.disconnect();
 
-    const obs = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    const obs = (entries: IntersectionObserverEntry[]) => {
       if (entries[0].isIntersecting && !canload) {
         setTimeout(() => {
           callback(15);
